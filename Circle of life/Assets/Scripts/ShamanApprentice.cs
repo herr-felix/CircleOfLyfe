@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShamanApprentice : MonoBehaviour
 {
     private float _moveSpeed;
+    //private Rigidbody _rb;
     private Rigidbody _rb;
     private Dictionary<CollectibleType, List<Collectible>> _ritualCollectibles;
     public ShamanSpiritualForm Form;
@@ -20,6 +21,31 @@ public class ShamanApprentice : MonoBehaviour
         {
             _ritualCollectibles.Add(ct, new List<Collectible> { c });
         }
+    }
+
+    private void MoveSpiritualForm()
+    {
+        if (Form == ShamanSpiritualForm.Egg)
+        {
+            var horizontal = Input.GetAxis("Horizontal");
+            //_rb.AddTorque(new Vector3(0, 0, horizontal*_moveSpeed), ForceMode.Force);
+        }
+        else if (Form == ShamanSpiritualForm.Horse)
+        {
+        }
+        else if (Form == ShamanSpiritualForm.Eagle)
+        {
+            var moveDir = Vector3.zero;
+            moveDir.x = Input.GetAxis("Horizontal"); // get result of AD keys in X
+            transform.position += moveDir * 55f * Time.deltaTime;
+        }
+        else if (Form == ShamanSpiritualForm.Shark)
+        {
+        }
+        else if (Form == ShamanSpiritualForm.Phoenix)
+        {
+        }
+
     }
 
     public void MoveSpiritualForm(ShamanSpiritualForm sf)
@@ -55,6 +81,8 @@ public class ShamanApprentice : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
+       // _rb = GetComponent<Rigidbody>();
+        Form = ShamanSpiritualForm.Eagle;
         _rb = GetComponent<Rigidbody>();
         Form = ShamanSpiritualForm.Egg;
     }
@@ -62,6 +90,7 @@ public class ShamanApprentice : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        MoveSpiritualForm();
     }
 }
 
