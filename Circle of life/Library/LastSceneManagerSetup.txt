@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Earth Ritual.unity
+- path: Assets/Scenes/Air ritual.unity
   isLoaded: 1
   isActive: 1
