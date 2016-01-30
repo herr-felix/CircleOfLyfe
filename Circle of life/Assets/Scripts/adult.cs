@@ -13,9 +13,11 @@ public class adult : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    float horizontal = Input.GetAxis("Horizontal");
-        if (horizontal > 0) isWalking = true;
+	    float horizontal = Input.GetAxisRaw("Horizontal");
+        if (horizontal != 0) isWalking = true;
         else isWalking = false;
+
+        anim.SetBool("isWalking", isWalking);
 
         if (Input.GetButton("Jump"))
             anim.SetBool("Jump", true);
