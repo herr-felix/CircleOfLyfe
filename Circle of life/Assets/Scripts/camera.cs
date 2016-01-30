@@ -13,7 +13,7 @@ public class camera : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position = player.transform.position + new Vector3(0, 5, 20);
+        transform.position = player.transform.position + new Vector3(-5, 5, 10);
         transform.LookAt(player.transform.position);
 
 	}
