@@ -1,23 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class collectible : MonoBehaviour {
-
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
-	}
-
-	void OnTriggerEnter(Collider col){
-		if(col.gameObject.tag == "Player"){
-			playerMethods.collectibleCount++;
-			Destroy (gameObject);
-	}
-}
+public class Collectible : MonoBehaviour
+{
+    public CollectibleType Type;
+    
+	void Update ()
+    {
+        transform.Rotate(Vector3.up, 10f * Time.deltaTime);
+    }
+    private void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag != "Player") return;
+        var apprentice = col.gameObject.GetComponent<ShamanApprentice>();
+        apprentice.CollectItem(Type, this);
+        Destroy(gameObject);
+    }
 }
