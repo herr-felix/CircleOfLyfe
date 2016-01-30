@@ -80,15 +80,3 @@ public enum ShamanSpiritualForm
     Shark,
     Eagle
 }
-public class Collectible : MonoBehaviour
-{
-    public CollectibleType Type;
-
-    private void OnTriggerEnter(Collider col)
-    {
-        if (col.gameObject.tag != "Player") return;
-        var apprentice = col.gameObject.GetComponent<ShamanApprentice>();
-        apprentice.CollectItem(Type, this);
-        Destroy(gameObject);
-    }
-}
