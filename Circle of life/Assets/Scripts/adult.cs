@@ -24,7 +24,7 @@ public class adult : MonoBehaviour {
         if (horizontal != 0)
         {
             isWalking = true;
-            rb.velocity = new Vector3(-5 * horizontal, rb.velocity.y, 0);
+            rb.velocity = new Vector3(-7 * horizontal, rb.velocity.y, 0);
             if (horizontal < 0)
             {
                 transform.forward = new Vector3(0, 0, -1);
